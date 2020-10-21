@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="spinner">↻</div>
+    <button class="start-btn" type="button">start</button>
+    <button type="button" class="stop-btn">stop</button>
+    <script>
+        const spinner = document.querySelector('.spinner');
+        const stopBtn = document.querySelector('.stop-btn');
+        const startBtn = document.querySelector('.start-btn');
+        let rotateCount = 0;
+        let startTime = null;
+        let rAF;
+
+        draw = (timestamp) => {
+         
+            if(!startTime) {
+                startTime = timestamp;
+            }
+
+            rotateCount = (timestamp - startTime) / 3;
+
+            if(rotateCount > 359) {
+                rotateCount %= 360;
+            }
+
+            spinner.style.transform = `rotate(${rotateCount}deg)`;
+
+            rAF = requestAnimationFrame(draw);
+        }
+        
+        draw();
+
+        stopBtn.addEventListener('click', () => {
+           cancelAnimationFrame(rAF);
+        })
+
+        startBtn.addEventListener('click', () => {
+            draw();
+        })
+    </script>
+</body>
+</html>

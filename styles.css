@@ -1,0 +1,37 @@
+html {
+    background-color: white;
+    height: 100%;
+  }
+  
+  body {
+    height: inherit;
+    background-color: red;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  div {
+    display: inline-block;
+    font-size: 10rem;
+  }
+  .stop-btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin-right: 1rem;
+      margin-top: 1rem;
+      width: 150px;
+      height: 30px;
+  }  
+
+  .start-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 1rem;
+    margin-top: 4rem;
+    width: 150px;
+    height: 30px;
+  }
